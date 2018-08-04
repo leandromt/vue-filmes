@@ -1,11 +1,11 @@
 <template>
   <section class="container-fluid">
     <ul class="row">
-      <li v-for="filme of filmes" :key="filme.id" class="col-md-2">
+      <li v-for="filme of filmes" :key="filme.id" class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">
         <router-link v-bind:to="'/interna/' + filme.id">
           <figure class="figure">
             <img class="figure-img img-fluid rounded" :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path">
-            <figcaption class="figure-caption">{{ filme.title }} <span class="badge badge-pill badge-secondary">New</span></figcaption>
+            <figcaption class="figure-caption">{{ filme.title }} <span class="badge badge-pill badge-secondary">novo</span></figcaption>
           </figure>
         </router-link>
       </li>
@@ -63,6 +63,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   
 </style>

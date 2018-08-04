@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home.vue'
-import Interna from '@/components/Interna.vue'
+import Filme from '@/components/Filme.vue'
 
 Vue.use(Router)
 
@@ -14,9 +14,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/interna/:id',
-      name: 'Interna',
-      component: Interna,
+      path: '/filme/:id',
+      name: 'Filme',
+      component: Filme,
       props: true
     }
   ]
