@@ -1,9 +1,14 @@
 <template>
   <section>
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>Filmes Populares</h1>
+        </div>
+      </div>
       <ul class="row">
-        <li v-for="filme of filmes" :key="filme.id" class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">
-          <router-link v-bind:to="'/interna/' + filme.id">
+        <li v-for="filme of filmes" :key="filme.id" class="col-12 col-sm-6 col-md-3 col-lg-2 col-xl-2">
+          <router-link v-bind:to="'/filme/' + filme.id">
             <figure class="figure">
               <img class="figure-img img-fluid rounded" :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path">
               <figcaption class="figure-caption">{{ filme.title }} <span class="badge badge-pill badge-danger">novo</span></figcaption>
@@ -66,7 +71,8 @@ export default {
 </script>
 
 <style scoped>
-  section {
-    padding: 40px;
+  .figure-caption {
+    font-size: 100%;
+    color: #373d42;
   }
 </style>
