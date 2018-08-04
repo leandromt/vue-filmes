@@ -1,21 +1,17 @@
 <template>
-    <div class="conteudo">
-      <section class="container-fluid manchete-modelo1">
-        <ul class="lista row">
-          <li v-for="filme of filmes" :key="filme.id" class="col-xs-12 col-sm-4 col-md-6">
-              <div class="item-lista">
-                  <router-link v-bind:to="'/interna/' + filme.id">
-                    <figure class="miniatura">
-                        <img :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path" style="width: 100%; height: 100%;">
-                    </figure>
-                    <span class="cartola vidaearte">{{ filme.title }}</span>
-                    <h2 class="subdestaque">{{ filme.overview }}</h2>
-                  </router-link>
-              </div>
-          </li>
-        </ul>
-      </section>
-    </div>
+  <section class="container-fluid">
+    <ul class="grid">
+      <li v-for="filme of filmes" :key="filme.id" class="grid-item">
+        <router-link v-bind:to="'/interna/' + filme.id">
+          <figure class="miniatura">
+            <img :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path" style="width: 100%; height: 100%;">
+          </figure>
+          <span class="">{{ filme.title }}</span>
+          <h2 class="">{{ filme.overview }}</h2>
+        </router-link>
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
@@ -61,7 +57,12 @@ export default {
 </script>
 
 <style scoped>
-  .conteudo {
-    min-height: 600px;
+  .grid-item { 
+    width: 25%;
+    min-height: 400px;
+  }
+  img {
+    width: 100%;
+    height: 25px;
   }
 </style>

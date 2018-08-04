@@ -1,8 +1,8 @@
 {
-  "name": "portal-pwa",
+  "name": "vue-filmes",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "O POVO",
+  "author": "Leandro Tavares",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
