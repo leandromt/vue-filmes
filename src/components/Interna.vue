@@ -1,5 +1,12 @@
 <template>
-	<div class="container"></div>
+	<div class="container-fluid">
+		<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><router-link v-bind:to="'/'">Home</router-link></li>
+			<li class="breadcrumb-item"><a href="#">Nomde do filme</a></li>
+		</ol>
+		</nav>
+	</div>
 </template>
 
 

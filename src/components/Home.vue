@@ -1,13 +1,12 @@
 <template>
   <section class="container-fluid">
-    <ul class="grid">
-      <li v-for="filme of filmes" :key="filme.id" class="grid-item">
+    <ul class="row">
+      <li v-for="filme of filmes" :key="filme.id" class="col-md-2">
         <router-link v-bind:to="'/interna/' + filme.id">
-          <figure class="miniatura">
-            <img :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path" style="width: 100%; height: 100%;">
+          <figure class="figure">
+            <img class="figure-img img-fluid rounded" :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path">
+            <figcaption class="figure-caption">{{ filme.title }} <span class="badge badge-pill badge-secondary">New</span></figcaption>
           </figure>
-          <span class="">{{ filme.title }}</span>
-          <h2 class="">{{ filme.overview }}</h2>
         </router-link>
       </li>
     </ul>
@@ -37,6 +36,7 @@ export default {
     let promise = this.$http.get('https://api.themoviedb.org/3/movie/popular', {
       params: {
         api_key: 'fad7717ca1edbacdd34d3e85119f9df3',
+        language: 'pt-BR',
         page: 1
       }
     });
@@ -50,19 +50,19 @@ export default {
     }, err => {
       console.log(err);
     });
+  },
 
+  methods: {
+
+    
 
   }
+
+
+
 }
 </script>
 
 <style scoped>
-  .grid-item { 
-    width: 25%;
-    min-height: 400px;
-  }
-  img {
-    width: 100%;
-    height: 25px;
-  }
+  
 </style>
