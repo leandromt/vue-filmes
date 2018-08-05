@@ -19,10 +19,10 @@
     </div>
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col col-lg-4">
+        <div class="col-12 col-sm-4">
             <img class="poster_path" :src="this.poster_path" alt=" ">
         </div>
-        <div class="col col-lg-4">
+        <div class="col-12 col-sm-4">
           <h3>Título Original:</h3>
           <p>{{this.original_title}}</p>
           <h3>Sinopse:</h3>
@@ -60,7 +60,8 @@ export default {
       vote_average: '',
       vote_count: '',
       poster_path: '',
-      genre_ids: []
+      genre_ids: [],
+      generos_list: []
     }
   },
 
@@ -68,6 +69,9 @@ export default {
 
     // Componente Back Top Scroll
     this.backTopPage();
+
+    //https://api.themoviedb.org/3/genre/movie/list
+
     
     // Carrega os JSON da ultima requisicao
     if(localStorage.getItem('localFilmes')){
@@ -84,9 +88,8 @@ export default {
           this.release_date = filmes[i].release_date;
           this.vote_average = filmes[i].vote_average;
           this.vote_count = filmes[i].vote_count;
-          this.genre_ids = filmes[i].genre_ids;
           this.poster_path = this.getFoto(filmes[i].poster_path);
-
+          this.genre_ids = filmes[i].genre_ids;
         }
       }
     }
