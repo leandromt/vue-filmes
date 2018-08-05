@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h1 class="title-page">Filmes Populares</h1>
+          <h1 class="title-page">Meus Favoritos</h1>
         </div>
       </div>
       <ul class="row">
@@ -48,20 +48,14 @@ export default {
       }
     });
 
+    console.log(promise);
+
     // Retorna uma promessa da Requisicao acima
     promise.then( res => {
       this.filmes = res.body.results;
-      // Registra uma variavel no localStorage armazenando o JSON
-      res.json().then(i => {
-        localStorage.setItem('localFilmes', JSON.stringify(res.body.results));
-      });
+      console.log(this.filmes);
     }, err => {
       console.log(err);
-      // Carrega os JSON da ultima requisicao
-      if(localStorage.getItem('localFilmes')){
-        let localFilmes = localStorage.getItem('localFilmes');
-        this.filmes = JSON.parse(localFilmes);
-      }
     });
   },
 

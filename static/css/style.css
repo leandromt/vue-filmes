@@ -7,3 +7,14 @@ body {
 .selector-for-some-widget {
   box-sizing: content-box;
 }
+.title-page {
+  text-align: center;
+  padding: 20px 0;
+}
+.breadcrumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track { background-color: #fff; border-right: 1px solid #ededed; border-left: none; margin-right: 3px }
+::-webkit-scrollbar { width: 10px; background: #fff }
+::-webkit-scrollbar-thumb {background: #2a2a2a }
