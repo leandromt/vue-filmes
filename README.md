@@ -4,7 +4,7 @@ A Vue.js project.
 
 ## Demo
 
-[TMDB Vue App](https://vue-filmes.firebaseapp.com/)
+[Vue Filmes App](https://vue-filmes.firebaseapp.com/)
 
 ## Build Setup
 
