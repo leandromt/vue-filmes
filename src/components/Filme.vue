@@ -69,6 +69,7 @@ export default {
 
     // Componente Back Top Scroll
     this.backTopPage();
+    this.generos_list = this.getGenres();
 
     //https://api.themoviedb.org/3/genre/movie/list
 
