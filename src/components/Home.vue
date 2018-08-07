@@ -1,5 +1,17 @@
 <template>
-  <section>
+  <div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><router-link v-bind:to="'/'">Página inicial</router-link></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <section>
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -19,6 +31,7 @@
       </ul>
     </div>
   </section>
+  </div>
 </template>
 
 <script>

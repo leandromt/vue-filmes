@@ -18,5 +18,8 @@ export default {
 </script>
 
 <style scoped>
-
+	#app {
+		min-height: 800px;
+		padding-bottom: 40px;
+	}
 </style>

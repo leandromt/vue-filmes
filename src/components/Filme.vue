@@ -6,7 +6,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/'">Página inicial</router-link></li>
-              <li class="breadcrumb-item">Nome do filme</li>
+              <li class="breadcrumb-item">{{this.title}}</li>
             </ol>
           </nav>
         </div>
