@@ -8,7 +8,7 @@
       </div>
       <ul class="row">
         <li v-for="filme of filmes" :key="filme.id" class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-          <div class="favoritar">Adicionar aos favoritos</div>
+          <div class="favoritar" :data-id="filme.id" v-on:click="addFavoritos(filme.id)">Adicionar aos favoritos</div>
           <router-link class="item-filme" v-bind:to="'/filme/' + filme.id">
             <figure class="figure">
               <img class="figure-img img-fluid rounded" :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path">
@@ -33,8 +33,8 @@ export default {
     return {
 
       filmes: [],
-      page: 1
-
+      page: 1,
+      favoritos: []
     }
   },
 
@@ -43,6 +43,19 @@ export default {
   },
 
   methods: {
+
+    addFavoritos (id_filme) {
+      
+      if(!localStorage.getItem('localFavoritos')){
+        this.favoritos.push(id_filme);
+        localStorage.setItem('localFavoritos', JSON.stringify(this.favoritos));
+      }else{
+        let localFavoritos = localStorage.getItem('localFavoritos');
+        localFavoritos = JSON.parse(localFavoritos);
+        localFavoritos.push(id_filme);
+        localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
+      }
+    },  
 
     getMovies (page) {
       // Realiza a requisicao com o Vue Resource
