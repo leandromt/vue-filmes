@@ -104,6 +104,9 @@ export default {
         }else{
           let localFavoritos = localStorage.getItem('localFavoritos');
           localFavoritos = JSON.parse(localFavoritos);
+          for (var i = localFavoritos.length - 1; i >= 0; i--) {
+            console.log(localFavoritos[i]);
+          }
           localFavoritos.push(event.target.getAttribute("data-id"));
           localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
         }

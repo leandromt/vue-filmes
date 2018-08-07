@@ -1,6 +1,7 @@
 # Vue Filmes
 
 A Vue.js project.
+[docs for Vue.js](https://vuejs.org/)
 
 ## Demo
 
@@ -23,4 +24,9 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 This app uses [history mode](https://router.vuejs.org/en/essentials/history-mode.html)
 
 ## License
+
 [MIT](https://github.com/dmtrbrl/tmdb-app/blob/master/LICENSE)
+
+## Firebase Hosting
+
+[docs](https://firebase.google.com/docs/hosting/)
