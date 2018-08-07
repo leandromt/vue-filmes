@@ -105,5 +105,7 @@ export default {
 <style scoped>
   .poster_path {
     width: 100%;
+    display: block;
+    margin-bottom: 20px;
   }
 </style>

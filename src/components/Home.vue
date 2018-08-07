@@ -93,22 +93,22 @@ export default {
 
 
       if(event.target.classList.contains('favorito')){
-        // Add favorito
-         event.target.classList.remove("favorito");
-      }else{
         // Remove favorito
+        event.target.classList.remove("favorito");
+      }else{
+        // Add favorito
         event.target.classList.add("favorito");
+        if(!localStorage.getItem('localFavoritos')){
+          this.favoritos.push(event.target.getAttribute("data-id"));
+          localStorage.setItem('localFavoritos', JSON.stringify(this.favoritos));
+        }else{
+          let localFavoritos = localStorage.getItem('localFavoritos');
+          localFavoritos = JSON.parse(localFavoritos);
+          localFavoritos.push(event.target.getAttribute("data-id"));
+          localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
+        }
       }
       
-      // if(!localStorage.getItem('localFavoritos')){
-      //   this.favoritos.push(id_filme);
-      //   localStorage.setItem('localFavoritos', JSON.stringify(this.favoritos));
-      // }else{
-      //   let localFavoritos = localStorage.getItem('localFavoritos');
-      //   localFavoritos = JSON.parse(localFavoritos);
-      //   localFavoritos.push(id_filme);
-      //   localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
-      // }
     },  
 
     getMovies (page) {
