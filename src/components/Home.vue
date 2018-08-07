@@ -1,6 +1,15 @@
 <template>
   <div> 
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><router-link v-bind:to="'/'">Página inicial</router-link></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
       <div class="row justify-content-md-center">
         <div class="col-12 col-sm-6 col-md-6 col-xl-6">
           <div class="input-group mb-3 search-group">
@@ -9,15 +18,6 @@
               <button class="btn btn-outline-danger" type="submit" v-on:click="searchMovie()">Pesquisar</button>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><router-link v-bind:to="'/'">Página inicial</router-link></li>
-            </ol>
-          </nav>
         </div>
       </div>
     </div>
