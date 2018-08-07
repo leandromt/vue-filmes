@@ -133,9 +133,6 @@ export default {
   .favoritar:hover::after, .favoritar.favorito::after {
     background-image: url('/static/img/icons/star-select.svg');
   }
-
-  
-
   .figure-caption {
     font-size: 100%;
     color: #373d42;
