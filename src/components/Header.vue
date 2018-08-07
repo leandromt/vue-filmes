@@ -7,12 +7,6 @@
             <router-link class="navbar-brand" v-bind:to="'/'">Vue filmes</router-link>
           </nav>
         </div>
-        <div class="col-12 col-sm-6 col-md-6 col-xl-6">
-          <div class="form-inline">
-            <input id="search" class="form-control" type="search" placeholder="Nome do filme" aria-label="Nome do filme">
-            <button class="btn btn-outline-danger" type="submit" v-on:click="searchMovie()">Pesquisar</button>
-          </div>
-        </div>
       </div>
     </div>
   </header>

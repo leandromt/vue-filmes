@@ -6,27 +6,6 @@ export default {
 	},
 	
 	methods: {
-
-		searchMovie(){
-			//https://api.themoviedb.org/3/search/movie?api_key=fad7717ca1edbacdd34d3e85119f9df3&language=pt-BR&query=mission
-			let itens = [];
-		  	let query = document.getElementById("search").value;
-		  	if(query){
-		  		let promise2 = this.$http.get('https://api.themoviedb.org/3/search/movie', {
-					params: {
-						api_key: 'fad7717ca1edbacdd34d3e85119f9df3',
-						language: 'pt-BR',
-						query: query
-					}
-				});
-				promise2.then( res => {
-					itens.push(res.body.results);
-				}, err => {
-					console.log(err);
-				});
-				return itens;
-		  	}
-		},
 		
 	    getFoto(foto){
 			let urlBase = 'https://image.tmdb.org/t/p/w500';

@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+      <div class="form-inline">
+        <input id="search" class="form-control" type="search" placeholder="Nome do filme" aria-label="Nome do filme">
+        <button class="btn btn-outline-danger" type="submit" v-on:click="searchMovie()">Pesquisar</button>
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -47,7 +53,8 @@ export default {
 
       filmes: [],
       page: 1,
-      favoritos: []
+      favoritos: [],
+      busca: false
     }
   },
 
@@ -56,6 +63,27 @@ export default {
   },
 
   methods: {
+
+    searchMovie(){
+      //https://api.themoviedb.org/3/search/movie?api_key=fad7717ca1edbacdd34d3e85119f9df3&language=pt-BR&query=mission
+      let query = document.getElementById("search").value;
+        if(query){
+          let promise2 = this.$http.get('https://api.themoviedb.org/3/search/movie', {
+          params: {
+            api_key: 'fad7717ca1edbacdd34d3e85119f9df3',
+            language: 'pt-BR',
+            query: query
+          }
+        });
+        promise2.then( res => {
+          this.filmes = [];
+          this.filmes = res.body.results;
+          this.busca = true;
+        }, err => {
+          console.log(err);
+        });
+      }
+    },
 
     addFavoritos (id_filme) {
       
@@ -107,7 +135,7 @@ export default {
       window.onscroll = () => {
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
-        if (bottomOfWindow) {
+        if (bottomOfWindow && (this.busca == false) ) {
           this.page++;
           this.getMovies(this.page);
         }
