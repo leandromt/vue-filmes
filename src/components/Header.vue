@@ -35,7 +35,6 @@ export default {
     background: #2a2a2a;
   }
   .form-inline {
-    float: right;
     padding-top: 8px;
   }
   .btn-outline-danger {

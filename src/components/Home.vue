@@ -1,12 +1,16 @@
 <template>
-  <div>
-    <div class="col-12 col-sm-6 col-md-6 col-xl-6">
-      <div class="form-inline">
-        <input id="search" class="form-control" type="search" placeholder="Nome do filme" aria-label="Nome do filme">
-        <button class="btn btn-outline-danger" type="submit" v-on:click="searchMovie()">Pesquisar</button>
-      </div>
-    </div>
+  <div> 
     <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+          <div class="input-group mb-3 search-group">
+            <input id="search" type="text" class="form-control" placeholder="Pesquisar por nome do filme" aria-label="Pesquisar por nome do filme" aria-describedby="Pesquisar por nome do filme">
+            <div class="input-group-append">
+              <button class="btn btn-outline-danger" type="submit" v-on:click="searchMovie()">Pesquisar</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-12">
           <nav aria-label="breadcrumb">
@@ -182,5 +186,8 @@ export default {
     position: relative;
     padding-bottom: 30px;
     display: block;
+  }
+  .search-group {
+    padding: 20px;
   }
 </style>
