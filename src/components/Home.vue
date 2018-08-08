@@ -30,7 +30,7 @@
       </div>
       <ul class="row">
         <li v-for="filme of filmes" :key="filme.id" class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-          <div class="favoritar" :data-id="filme.id" v-on:click="addFavoritos(filme.id)">Adicionar aos favoritos</div>
+          <div class="favoritar" :class="checkTeste(filme.id)" :data-id="filme.id" v-on:click="addFavoritos(filme.id)">Adicionar aos favoritos</div>
           <router-link class="item-filme" v-bind:to="'/filme/' + filme.id">
             <figure class="figure">
               <img class="figure-img img-fluid rounded" :src="'https://image.tmdb.org/t/p/w500' + filme.poster_path">
@@ -68,6 +68,18 @@ export default {
 
   methods: {
 
+    checkTeste(id){
+      if(localStorage.getItem('localFavoritos')){
+        let localFavoritos = localStorage.getItem('localFavoritos');
+        localFavoritos = JSON.parse(localFavoritos);
+        for (var i = localFavoritos.length - 1; i >= 0; i--) {
+          if(localFavoritos[i] == id){
+            return 'favorito';
+          }
+        }
+      }
+    },
+
     searchMovie(){
       //https://api.themoviedb.org/3/search/movie?api_key=fad7717ca1edbacdd34d3e85119f9df3&language=pt-BR&query=mission
       let query = document.getElementById("search").value;
@@ -95,6 +107,15 @@ export default {
       if(event.target.classList.contains('favorito')){
         // Remove favorito
         event.target.classList.remove("favorito");
+        let localFavoritos = localStorage.getItem('localFavoritos');
+        localFavoritos = JSON.parse(localFavoritos);
+        for (var i = localFavoritos.length - 1; i >= 0; i--) {
+          if(localFavoritos[i] == event.target.getAttribute("data-id")){
+            localFavoritos.splice(i, 1);
+            localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
+            return;
+          }
+        }
       }else{
         // Add favorito
         event.target.classList.add("favorito");
@@ -105,10 +126,13 @@ export default {
           let localFavoritos = localStorage.getItem('localFavoritos');
           localFavoritos = JSON.parse(localFavoritos);
           for (var i = localFavoritos.length - 1; i >= 0; i--) {
-            console.log(localFavoritos[i]);
+            if(localFavoritos[i] == event.target.getAttribute("data-id")){
+            }else{
+              localFavoritos.push(event.target.getAttribute("data-id"));
+              localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
+              return;
+            }
           }
-          localFavoritos.push(event.target.getAttribute("data-id"));
-          localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
         }
       }
       
