@@ -117,20 +117,29 @@ export default {
           }
         }
       }else{
+        console.log('add');
         // Add favorito
         event.target.classList.add("favorito");
         if(!localStorage.getItem('localFavoritos')){
           this.favoritos.push(event.target.getAttribute("data-id"));
           localStorage.setItem('localFavoritos', JSON.stringify(this.favoritos));
         }else{
+          console.log('exite storage');
           let localFavoritos = localStorage.getItem('localFavoritos');
           localFavoritos = JSON.parse(localFavoritos);
-          for (var i = localFavoritos.length - 1; i >= 0; i--) {
-            if(localFavoritos[i] == event.target.getAttribute("data-id")){
-            }else{
-              localFavoritos.push(event.target.getAttribute("data-id"));
-              localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
-              return;
+          if(localFavoritos.length == 0){
+            localFavoritos.push(event.target.getAttribute("data-id"));
+            localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
+          }else{
+            for (var i = localFavoritos.length - 1; i >= 0; i--) {
+              if(localFavoritos[i] == event.target.getAttribute("data-id")){
+                console.log('4');
+              }else{
+                console.log('1');
+                localFavoritos.push(event.target.getAttribute("data-id"));
+                localStorage.setItem('localFavoritos', JSON.stringify(localFavoritos));
+                return;
+              }
             }
           }
         }
