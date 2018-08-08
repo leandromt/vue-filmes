@@ -4,6 +4,17 @@ A Vue.js project.
 
 [docs for Vue.js](https://vuejs.org/)
 
+## Preview
+
+Desktop Version
+
+![](https://raw.githubusercontent.com/leandromt/vue-filmes/master/static/img/git/vue-firebase.png)
+
+PWA Version
+
+![](https://raw.githubusercontent.com/leandromt/vue-filmes/master/static/img/git/vue-pwa-1.png)
+![](https://raw.githubusercontent.com/leandromt/vue-filmes/master/static/img/git/vue-pwa-2.png)
+
 ## Demo
 
 [Vue Filmes App](https://vue-filmes.firebaseapp.com/)
